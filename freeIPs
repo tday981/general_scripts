@@ -1,0 +1,11 @@
+#!/bin/bash
+
+/home/jason/bin/getHostlist.pl
+
+nmap -n -v -sP 10.91.25.128-190 | grep -i down | awk '{ print $5 }' | sort > down.txt
+
+cat /etc/hosts | grep '10.91.25' | grep -v '#10' | awk '{ print $1 }' } sort > host.txt
+
+diff down.txt host.txt | grep '< 10.91.25' | awk '{ print $2 }'
+
+rm down.txt host.txt

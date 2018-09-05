@@ -1,0 +1,12 @@
+#!/usr/bin/bash
+
+dir=~/bin/label_script
+date=`date +"%m_%d_%y"`
+
+num=`ls -1 $dir/label_$date* | wc -l`;
+nnum=`echo "($num + 1)" | bc -l`
+
+#echo "$dir/label_$date"_"$nnum"
+cp "/storage/labels/label.pl" "$dir/label_$date"_"$nnum"
+
+echo "Copied file"

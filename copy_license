@@ -1,0 +1,11 @@
+#!/bin/bash
+
+dos2unix /smb/rmdslicenses/licensefile.txt
+
+date=`grep -i expiration /smb/rmdslicenses/licensefile.txt | awk '{ print $3,$4,$5 }' | uniq`
+month=`echo $date | awk '{ print $1 }'`
+day=`echo $date | awk '{ print $2 }'`
+year=`echo $date | awk '{ print $3 }'`
+
+cp /smb/rmdslicenses/licensefile.txt /mnt/main/software/rmds_licenses/licensefile\_$month\_$day\_$year.txt
+echo "Copied license to main $?"

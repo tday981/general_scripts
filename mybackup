@@ -1,0 +1,23 @@
+#/bin/bash
+
+cd /rmds/dacs/database
+
+#Set variables
+month=`date +%m`
+day=`date +%d`
+year=`date +%Y`
+current="$month-$day-$year"
+
+#Make new directory
+mkdir /opt/backup/$current
+
+#Output database to directory
+cd /rmds/dacs/database/
+./move_db.pl -S BULLDAWG -B /opt/backup/$current -O -N
+
+#Tar directory and zip it
+tar -cvf /opt/backup/$current.tar -C /opt/backup/ $current
+gzip /opt/backup/$current.tar
+
+#Remove directory
+rm -rf /opt/backup/$current

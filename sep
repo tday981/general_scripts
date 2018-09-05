@@ -1,0 +1,59 @@
+#!/bin/bash
+
+echo -n "Any special separator? (y/n) "
+read answer
+
+if [ "$answer" = "y" ]; then
+	echo -n "What is the field separator? "
+	read sep
+
+	echo -n "Which input file? "
+	read file
+
+	echo -n "Which column number do you want? "
+	read number
+
+	echo -n "Do you want to output to a file? (y/n) "
+	read out
+	
+		if [ "$out" = "y" ]; then
+
+			echo -n "What's the name of the output file? "
+			read outfile
+
+			awk -F $sep '{ print $'$number' }' $file > $outfile
+		
+		else
+			awk -F $sep '{ print $'$number' }' $file 
+		fi
+
+elif [ "$answer" = "n" ]; then
+
+	echo -n "Which file? "
+	read file
+
+	echo -n "Which column number? "
+	read number
+
+	echo -n "Do you want to output to a file? (y/n) "
+	read out
+	
+		if [ "$out" = "y" ]; then
+
+			echo -n "What's the name of the output file? "
+			read outfile
+
+			awk '{ print $'$number' }' $file > temp.txt
+			sort temp.txt > $outfile
+			rm -f temp.txt
+		
+		else 
+			awk '{ print $'$number' }' $file 
+		fi
+
+else
+        echo "Please enter yes or no!"
+fi
+
+#echo 'awk -F '$sep' '{ print $'$number' }' '$file''
+#awk -F $sep '{ print $'$number' }' $file

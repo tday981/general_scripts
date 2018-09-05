@@ -1,0 +1,11 @@
+#!/usr/bin/expect
+
+#spawn jp.sh
+
+expect "Hello World"
+send "Out\r" 
+
+#sleep 2
+#expect "Out" { send "Over\r" }
+
+#interact

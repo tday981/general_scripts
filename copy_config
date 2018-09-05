@@ -1,0 +1,5 @@
+#!/bin/bash
+
+scp $RMDS_CONFIG root@oliver:$RMDS_CONFIG
+scp $RMDS_CONFIG root@maddie:$RMDS_CONFIG
+

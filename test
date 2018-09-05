@@ -1,0 +1,7 @@
+
+date=`grep -i expiration licensefile.txt | awk '{ print $3,$4,$5 }' | uniq`
+month=`echo $date | awk '{ print $1 }'`
+day=`echo $date | awk '{ print $2 }'`
+year=`echo $date | awk '{ print $3 }'`
+
+cp /smb/licensefile.txt /smb/licensefile\_"$month"\_"$day"\_"$year".txt

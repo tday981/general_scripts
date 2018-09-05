@@ -1,0 +1,4 @@
+#!/bin/bash
+# Copy files to //main/data/software/3000xtra/CD1
+
+rsync -av /mnt/prismfiles/3000\ Xtra\ 5.1\ RRG/CD\ 1/ /mnt/software/3000xtra/CD\ 1/

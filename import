@@ -1,0 +1,23 @@
+#/bin/bash
+
+#Set variables
+month=`date +%m`
+day=`date +%d`
+year=`date +%Y`
+current="$month-$day-$year"
+
+echo -n "Import from which file? "
+read file
+
+echo "File is $file"
+tar -xvf $file -C /opt/backup/temp
+remove=`ls /opt/backup/temp`
+source=/opt/backup/temp/$remove
+echo "Source is $source"
+
+cd /rmds/dacs/database/
+directory=`pwd`
+echo "I'm in $directory"
+./move_db.pl -S BULLDAWG -B $source -I -N
+
+rm -rf $source;

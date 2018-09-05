@@ -1,0 +1,14 @@
+#!/bin/bash
+
+#Get Pids
+mue_pid=`ps -ef | grep mue | grep java | awk '{ print $2 }'`
+mne_pid=`ps -ef | grep mne | grep java | awk '{ print $2 }'`
+xpe_pid=`ps -ef | grep xpe | grep java | awk '{ print $2 }'`
+
+#kill Pids
+kill $mue_pid
+kill $mne_pid
+kill $xpe_pid
+
+#remove rwds_pid
+rm rwds_pid

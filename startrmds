@@ -1,0 +1,32 @@
+#!/bin/bash
+#Script to startup rmds devices
+
+#Synergy
+cd /root/scripts
+./startsynergy
+
+#DTS
+cd /rmds/dts/bin
+./startdts
+
+#RDTIC
+cd /rmds/rdtic/rhel5_x86_32/bin
+./start_rdtic
+
+#Hawk Agent
+cd /opt/tibco/hawk/bin
+./startagent
+./starthma
+
+#RMS Component
+cd /rmds/rms/bin
+./startRmcMA
+./startRrcpTrans
+./startAggregationMA
+
+#FTP
+cd /opt/pure-ftpd-1.0.25/configuration-file/
+./startftp
+
+cd /rmds/dacs/tsis/
+./dacs.startup

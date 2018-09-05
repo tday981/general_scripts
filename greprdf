@@ -1,0 +1,74 @@
+#!/bin/bash
+
+echo -n "Any particlar date? (y/n) "
+read anydate
+
+	if [[ "$anydate" == y ]]; then
+		
+		echo -n "Enter date (ex. 01-01 month-day): "
+		read date
+
+		for i in `ls *.zip`;
+		do
+
+		dir=`ls $i | awk -F_ '{ print $4 }' | awk -F. '{ print $1 }'`
+		unzip $i -d $dir
+		rm $dir/*.txt $dir/*.log
+		unzip $dir/server_log_files.zip -d $dir
+
+	if [ -f $dir/server_statistics.zip ]; then
+		unzip $dir/server_statistics.zip -d /smb/RDFSLTLogViewer130/$dir
+	fi
+	
+	if [ -f $dir/os_event_log.zip ]; then
+		unzip $dir/os_event_log.zip -d /smb/rdfLogs/event_logs/$dir
+	fi
+		rm $dir/*.zip
+		cat $dir/*.txt | grep -i "ssl output" | grep $date >> $dir.temp
+		cat $dir/*.txt | grep -i "post item update" | grep $date >> $dir.temp
+		cat $dir/*.txt | grep -i "comms fault" | grep -iv rdbdata | grep $date >> $dir.temp
+		cat $dir/*.txt | grep -i "loss of channel"  | grep $date >> $dir.temp
+		cat $dir/*.txt | grep -i "rss timeout" | grep $date >> $dir.temp
+		cat $dir/*.txt | grep -i "success" | grep -v "RSC" | grep -v "Monthly house keeping" | grep -v ColumbiaWatch | grep $date >> $dir.temp
+		cat $dir/*.txt | grep -i "high watermark" | grep $date >> $dir.temp
+		cat $dir/*.txt | grep -i "Error!" | grep $date >> $dir.temp
+		cat $dir/*.txt | grep -i "Output Tuning" | grep $date >> $dir.temp
+		cat $dir/*.txt | grep -i "Logon Failed" | grep $date >> $dir.temp
+		sort $dir.temp | uniq > $dir.txt
+		rm -rf $dir $dir.temp
+		unix2dos $dir.txt
+		done;
+
+	
+	elif [[ "$anydate" == n ]]; then
+		
+		for i in `ls *.zip`;
+		do
+
+		dir=`ls $i | awk -F_ '{ print $4 }' | awk -F. '{ print $1 }'`
+		unzip $i -d $dir
+		rm $dir/*.txt $dir/*.log
+		unzip $dir/server_log_files.zip -d $dir
+
+	if [ -f $dir/server_statistics.zip ]; then
+		unzip $dir/server_statistics.zip -d /smb/RDFSLTLogViewer130/$dir
+	fi
+
+	if [ -f $dir/os_event_log.zip ]; then
+		unzip $dir/os_event_log.zip -d /smb/rdfLogs/event_logs/$dir
+	fi
+		rm $dir/*.zip
+		cat $dir/*.txt | grep -i "ssl output" >> $dir.temp
+		cat $dir/*.txt | grep -i "post item update" >> $dir.temp
+		cat $dir/*.txt | grep -i "comms fault" | grep -iv rdbdata >> $dir.temp
+		cat $dir/*.txt | grep -i "loss of channel" >> $dir.temp
+		cat $dir/*.txt | grep -i "rss timeout" >> $dir.temp
+		cat $dir/*.txt | grep -i "success" | grep -v "RSC" | grep -v "Monthly house keeping" |  grep -v ColumbiaWatch >> $dir.temp
+		cat $dir/*.txt | grep -i "high watermark" >> $dir.temp
+		cat $dir/*.txt | grep -i "Error!" >> $dir.temp
+		cat $dir/*.txt | grep -i "Output Tuning" >> $dir.temp
+		cat $dir/*.txt | grep -i "Logon Failed" >> $dir.temp
+		sort $dir.temp | uniq > $dir.txt
+		rm -rf $dir $dir.temp
+		done;
+fi

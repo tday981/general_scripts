@@ -1,0 +1,34 @@
+#!/usr/bin/expect
+
+package require Expect
+
+proc now {} { clock seconds }
+set start_time [now]
+
+proc tick {} {
+    global start_time
+    expr {[clock seconds]-$start_time}
+}
+
+puts "Use +/- to alter the timeout, control-D to exit"
+
+spawn tclsh
+
+# not $timeout, because it's special to expect even if not to interact
+set time_out 1
+
+while {1} {
+    puts "\[Timeout is: $time_out\]"
+    interact {
+        timeout $time_out { puts "\[tick [tick]\]" }
+        + { incr time_out; return }
+        -- - { incr time_out -1; return }
+        -o eof {
+            puts "We're done here"
+            break
+        }
+    }
+}
+
+puts "Phew, that's over"
+

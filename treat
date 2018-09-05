@@ -1,0 +1,3 @@
+#!/bin/bash
+
+ssh jdpollar@10.91.160.52

@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="client-nojs">
+<head>
+<title>Hostlist - STL-TSG Wiki</title>
+<meta charset="UTF-8" />
+<meta name="generator" content="MediaWiki 1.18.1" />
+<link rel="alternate" type="application/x-wiki" title="Edit" href="/wiki/index.php?title=Hostlist&amp;action=edit" />
+<link rel="edit" title="Edit" href="/wiki/index.php?title=Hostlist&amp;action=edit" />
+<link rel="shortcut icon" href="/favicon.ico" />
+<link rel="search" type="application/opensearchdescription+xml" href="/wiki/opensearch_desc.php" title="STL-TSG Wiki (en)" />
+<link rel="EditURI" type="application/rsd+xml" href="http://10.91.31.7/wiki/api.php?action=rsd" />
+<link rel="alternate" type="application/atom+xml" title="STL-TSG Wiki Atom feed" href="/wiki/index.php?title=Special:RecentChanges&amp;feed=atom" />
+<link rel="stylesheet" href="/wiki/load.php?debug=false&amp;lang=en&amp;modules=mediawiki.legacy.commonPrint%2Cshared%7Cskins.vector&amp;only=styles&amp;skin=vector&amp;*" />
+<meta name="ResourceLoaderDynamicStyles" content="" />
+<style>a:lang(ar),a:lang(ckb),a:lang(fa),a:lang(kk-arab),a:lang(mzn),a:lang(ps),a:lang(ur){text-decoration:none}a.new,#quickbar a.new{color:#ba0000}
+
+/* cache key: wikidb:resourceloader:filter:minify-css:4:c88e2bcd56513749bec09a7e29cb3ffa */
+</style>
+<script src="/wiki/load.php?debug=false&amp;lang=en&amp;modules=startup&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+	mw.config.set({"wgCanonicalNamespace": "", "wgCanonicalSpecialPageName": false, "wgNamespaceNumber": 0, "wgPageName": "Hostlist", "wgTitle": "Hostlist", "wgCurRevisionId": 781, "wgArticleId": 3, "wgIsArticle": true, "wgAction": "view", "wgUserName": null, "wgUserGroups": ["*"], "wgCategories": [], "wgBreakFrames": false, "wgRestrictionEdit": [], "wgRestrictionMove": []});
+}
+</script><script>if(window.mw){
+	mw.loader.load(["mediawiki.page.startup"]);
+}
+</script>
+<!--[if lt IE 7]><style type="text/css">body{behavior:url("/wiki/skins/vector/csshover.min.htc")}</style><![endif]--></head>
+<body class="mediawiki ltr sitedir-ltr ns-0 ns-subject page-Hostlist action-view skin-vector">
+		<div id="mw-page-base" class="noprint"></div>
+		<div id="mw-head-base" class="noprint"></div>
+		<!-- content -->
+		<div id="content">
+			<a id="top"></a>
+			<div id="mw-js-message" style="display:none;"></div>
+						<!-- firstHeading -->
+			<h1 id="firstHeading" class="firstHeading">Hostlist</h1>
+			<!-- /firstHeading -->
+			<!-- bodyContent -->
+			<div id="bodyContent">
+								<!-- tagline -->
+				<div id="siteSub">From STL-TSG Wiki</div>
+				<!-- /tagline -->
+								<!-- subtitle -->
+				<div id="contentSub"></div>
+				<!-- /subtitle -->
+																<!-- jumpto -->
+				<div id="jump-to-nav">
+					Jump to: <a href="#mw-head">navigation</a>,
+					<a href="#p-search">search</a>
+				</div>
+				<!-- /jumpto -->
+								<!-- bodycontent -->
+				<div lang="en" dir="ltr" class="mw-content-ltr"><p>Host list is below.  <a rel="nofollow" class="external autonumber" href="http://10.91.31.7/scripts/getHostlist.pl">[1]</a>Here is a script that will automagically pull this into your linux/solaris box. <br />
+Do:
+</p>
+<pre>
+wget http://10.91.31.7/scripts/getHostlist.pl
+</pre>
+<p>to pull the script down.
+</p><p>NOTE THAT THIS MIGHT NOT ALWAYS BE ACCURATE.  WHEN IN DOUBT, REFER TO <a rel="nofollow" class="external autonumber" href="http://10.91.31.7/hostlist">[2]</a>
+</p>
+<pre>
+
+##################################################################
+#
+#  STL-TSG/GPSS Lab Hosts File
+#  Revision: 31.10.2012
+#
+##################################################################
+#
+#  Changelog:
+#
+#  31.10.2012 ba - added comments.  added virtualized ip block
+#
+##################################################################
+
+127.0.0.1   localhost localhost.localdomain localhost4 localhost4.localdomain4
+::1         localhost localhost.localdomain localhost6 localhost6.localdomain6
+###################################
+# St. Louis Lab IME host addresses
+###################################
+10.91.31.7	stltsgserver1-ime
+10.91.31.32	stltsgads1-ime
+10.91.31.33	stltsgads2-ime
+10.91.31.34 	stltsgats1-ime
+10.91.31.35	stltsgdacs1-ime
+10.91.31.38	stltsgads3-ime
+10.91.31.39	stltsgads4-ime
+10.91.31.40	stltsgats2-ime
+10.91.31.41	stltsgdbu1-ime
+10.91.31.42	stltsgdbu2-ime
+10.91.31.43	stltsgbuild-ime
+10.91.31.46	stltsgupx1-ime
+10.91.31.47	stltsgcpx1-ime
+10.91.31.50	stltsgupx2-ime
+10.91.31.51	stltsgcpx2-ime
+10.91.31.52	stltsgrmds1-ime
+10.91.31.53	stltsgrmds2-ime
+10.91.31.54	stltsgeikon1-ime
+10.91.31.55	stltsgeikon2-ime
+10.91.31.56	stltsgeikon3-ime
+10.91.31.57	stltsgeikon4-ime
+10.91.31.58	stltsgxtra1-ime
+10.91.31.59	stltsgxtra2-ime
+10.91.31.60	stltsgrtic1-ime
+10.91.31.61	stltsgtools-ime
+10.91.31.62	stltsgcitrix-ime
+10.91.31.63	stltsgvmware-ime
+10.91.31.64	stltsgfile-ime
+#
+# Personal second level test servers
+#
+10.91.31.76	stltsgshale2 stltsgshale2-ime   # Steven Hale
+10.91.31.77	stltsgshale1 stltsgshale1-ime   # Steven Hale
+10.91.31.78	stltsgjpoll1 stltsgjpoll1-ime   # Jason Pollard
+10.91.31.79	stltsgjpoll2 stltsgjpoll2-ime   # Jason Pollard
+10.91.31.80	stltsgahora1 stltsgahora1-ime   # Angela Horacek
+10.91.31.81	stltsgahora2 stltsgahora2-ime   # Angela Horacek
+10.91.31.82	stltsgahora3 stltsgahora3-ime   # Angela Horacek
+10.91.31.83	stltsgpsu1   stltsgpsu1-ime	# Peng Su
+10.91.31.84	stltsgnchang1 stltsgnchang1-ime	# Naomi Chang
+10.91.31.85	stltsgnchang2 stltsgnchang2-ime # Naomi Chang
+
+############################################
+# Virtualized servers for front line agents
+############################################
+
+10.91.31.201	stltsglnxvm1  # Adam Jervis
+10.91.31.202	stltsglnxvm2  # Tim McCormack
+10.91.31.203	stltsglnxvm3  # Tim McCormack
+10.91.31.204	stltsglnxvm4
+10.91.31.205	stltsglnxvm5
+10.91.31.206	stltsglnxvm6
+10.91.31.207	stltsglnxvm7
+10.91.31.208	stltsglnxvm8
+
+
+#
+############################################
+# St. Louis Lab MDH Backbone host addresses
+############################################
+192.168.100.30	stltsgadh1-bb1 stltsgadh1
+192.168.100.31	stltsgadh2-bb1 stltsgadh2
+192.168.100.32	stltsgads1-bb1 stltsgads1
+192.168.100.33	stltsgads2-bb1 stltsgads2
+192.168.100.34	stltsgats1-bb1 stltsgats1
+192.168.100.35	stltsgdacs1-bb1 stltsgdacs1
+192.168.100.43	stltsgbuild-bb1 stltsgbuild-eth2
+192.168.100.60  stltsgrtic-bb1
+192.168.100.61	stltsgtools-bb1 stltsgtools-eth2
+192.168.100.62	stltsgcitrix-bb1 stltsgcitrix-eth2
+192.168.100.63	stltsgvmware-bb1 stltsgvmware-eth2
+192.168.100.64	stltsgfile-bb1 stltsgfile-eth2
+192.168.200.35	stltsgdacs1-bb2 stltsgdacs1-eth2
+192.168.200.37	stltsgadh3-bb2
+192.168.200.36	stltsgadh4-bb2
+192.168.200.38	stltsgads3-bb2
+192.168.200.39	stltsgads4-bb2
+192.168.200.40	stltsgats2-bb2
+192.168.200.53	stltsgrmds2-bb2
+192.168.200.43	stltsgbuild-bb2
+192.168.200.61	stltsgtools-bb2
+192.168.200.62	stltsgcitrix-bb2
+192.168.200.63	stltsgvmware-bb2
+192.168.200.64	stltsgfile-bb2
+##############################################
+# St. Louis Lab Feednet host addresses
+172.27.17.10    RDFCWQ44DB11
+172.27.17.11    RDFCCQ448311
+172.27.17.22    PDFHDC4F0B01
+172.27.17.16    RDF-D
+172.27.17.17    stltsgreplay-feed
+172.27.17.13    PDFHDC4F0903
+172.27.17.30	stltsgadh1-feed
+172.27.17.31	stltsgadh2-feed
+172.27.17.37	stltsgadh3-feed
+172.27.17.36	stltsgadh4-feed
+172.27.17.52	stltsgrmds1-feed
+172.27.17.53	stltsgrmds2-feed
+172.27.17.43	stltsgbuild-feed
+172.27.17.61	stltsgtools-feed
+172.27.17.64	stltsgfile-feed
+#
+#  Second level feed addresses
+#
+172.27.17.76	stltsgshale2-feed
+172.27.17.77	stltsgshale1-feed
+172.27.17.78	stltsgjpoll1-feed
+172.27.17.79	stltsgjpoll2-feed
+172.27.17.80	stltsgahora1-feed
+172.27.17.81	stltsgahora2-feed
+172.27.17.82	stltsgahora3-feed
+172.27.17.83	stltsgpsu1-feed
+################################################
+
+</pre>
+
+<!-- 
+NewPP limit report
+Preprocessor node count: 7/1000000
+Post-expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Expensive parser function count: 0/100
+-->
+
+<!-- Saved in parser cache with key wikidb:pcache:idhash:3-0!*!*!*!*!*!* and timestamp 20140805155408 -->
+</div>				<!-- /bodycontent -->
+								<!-- printfooter -->
+				<div class="printfooter">
+				Retrieved from "<a href="http://10.91.31.7/wiki/index.php?title=Hostlist&amp;oldid=781">http://10.91.31.7/wiki/index.php?title=Hostlist&amp;oldid=781</a>"				</div>
+				<!-- /printfooter -->
+												<!-- catlinks -->
+				<div id='catlinks' class='catlinks catlinks-allhidden'></div>				<!-- /catlinks -->
+												<div class="visualClear"></div>
+				<!-- debughtml -->
+								<!-- /debughtml -->
+			</div>
+			<!-- /bodyContent -->
+		</div>
+		<!-- /content -->
+		<!-- header -->
+		<div id="mw-head" class="noprint">
+			
+<!-- 0 -->
+<div id="p-personal" class="">
+	<h5>Personal tools</h5>
+	<ul>
+		<li id="pt-login"><a href="/wiki/index.php?title=Special:UserLogin&amp;returnto=Hostlist" title="You are encouraged to log in; however, it is not mandatory [o]" accesskey="o">Log in / create account</a></li>
+	</ul>
+</div>
+
+<!-- /0 -->
+			<div id="left-navigation">
+				
+<!-- 0 -->
+<div id="p-namespaces" class="vectorTabs">
+	<h5>Namespaces</h5>
+	<ul>
+					<li  id="ca-nstab-main" class="selected"><span><a href="/wiki/index.php/Hostlist"  title="View the content page [c]" accesskey="c">Page</a></span></li>
+					<li  id="ca-talk" class="new"><span><a href="/wiki/index.php?title=Talk:Hostlist&amp;action=edit&amp;redlink=1"  title="Discussion about the content page [t]" accesskey="t">Discussion</a></span></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+
+<!-- 1 -->
+<div id="p-variants" class="vectorMenu emptyPortlet">
+		<h5><span>Variants</span><a href="#"></a></h5>
+	<div class="menu">
+		<ul>
+					</ul>
+	</div>
+</div>
+
+<!-- /1 -->
+			</div>
+			<div id="right-navigation">
+				
+<!-- 0 -->
+<div id="p-views" class="vectorTabs">
+	<h5>Views</h5>
+	<ul>
+					<li id="ca-view" class="selected"><span><a href="/wiki/index.php/Hostlist" >Read</a></span></li>
+					<li id="ca-edit"><span><a href="/wiki/index.php?title=Hostlist&amp;action=edit"  title="You can edit this page. Please use the preview button before saving [e]" accesskey="e">Edit</a></span></li>
+					<li id="ca-history" class="collapsible"><span><a href="/wiki/index.php?title=Hostlist&amp;action=history"  title="Past revisions of this page [h]" accesskey="h">View history</a></span></li>
+			</ul>
+</div>
+
+<!-- /0 -->
+
+<!-- 1 -->
+<div id="p-cactions" class="vectorMenu emptyPortlet">
+	<h5><span>Actions</span><a href="#"></a></h5>
+	<div class="menu">
+		<ul>
+					</ul>
+	</div>
+</div>
+
+<!-- /1 -->
+
+<!-- 2 -->
+<div id="p-search">
+	<h5><label for="searchInput">Search</label></h5>
+	<form action="/wiki/index.php" id="searchform">
+		<input type='hidden' name="title" value="Special:Search"/>
+				<input type="search" name="search" title="Search STL-TSG Wiki [f]" accesskey="f" id="searchInput" />		<input type="submit" name="go" value="Go" title="Go to a page with this exact name if exists" id="searchGoButton" class="searchButton" />		<input type="submit" name="fulltext" value="Search" title="Search the pages for this text" id="mw-searchButton" class="searchButton" />			</form>
+</div>
+
+<!-- /2 -->
+			</div>
+		</div>
+		<!-- /header -->
+		<!-- panel -->
+			<div id="mw-panel" class="noprint">
+				<!-- logo -->
+					<div id="p-logo"><a style="background-image: url(/wiki/skins/common/images/wiki.png);" href="/wiki/index.php/Main_Page"  title="Visit the main page"></a></div>
+				<!-- /logo -->
+				
+<!-- navigation -->
+<div class="portal" id='p-navigation'>
+	<h5>Navigation</h5>
+	<div class="body">
+		<ul>
+			<li id="n-mainpage-description"><a href="/wiki/index.php/Main_Page" title="Visit the main page [z]" accesskey="z">Main page</a></li>
+			<li id="n-portal"><a href="/wiki/index.php/STL-TSG_Wiki:Community_portal" title="About the project, what you can do, where to find things">Community portal</a></li>
+			<li id="n-currentevents"><a href="/wiki/index.php/STL-TSG_Wiki:Current_events" title="Find background information on current events">Current events</a></li>
+			<li id="n-recentchanges"><a href="/wiki/index.php/Special:RecentChanges" title="A list of recent changes in the wiki [r]" accesskey="r">Recent changes</a></li>
+			<li id="n-randompage"><a href="/wiki/index.php/Special:Random" title="Load a random page [x]" accesskey="x">Random page</a></li>
+			<li id="n-help"><a href="/wiki/index.php/Help:Contents" title="The place to find out">Help</a></li>
+		</ul>
+	</div>
+</div>
+
+<!-- /navigation -->
+
+<!-- SEARCH -->
+
+<!-- /SEARCH -->
+
+<!-- TOOLBOX -->
+<div class="portal" id='p-tb'>
+	<h5>Toolbox</h5>
+	<div class="body">
+		<ul>
+			<li id="t-whatlinkshere"><a href="/wiki/index.php/Special:WhatLinksHere/Hostlist" title="A list of all wiki pages that link here [j]" accesskey="j">What links here</a></li>
+			<li id="t-recentchangeslinked"><a href="/wiki/index.php/Special:RecentChangesLinked/Hostlist" title="Recent changes in pages linked from this page [k]" accesskey="k">Related changes</a></li>
+			<li id="t-specialpages"><a href="/wiki/index.php/Special:SpecialPages" title="A list of all special pages [q]" accesskey="q">Special pages</a></li>
+			<li><a href="/wiki/index.php?title=Hostlist&amp;printable=yes" rel="alternate">Printable version</a></li>
+			<li id="t-permalink"><a href="/wiki/index.php?title=Hostlist&amp;oldid=781" title="Permanent link to this revision of the page">Permanent link</a></li>
+		</ul>
+	</div>
+</div>
+
+<!-- /TOOLBOX -->
+
+<!-- LANGUAGES -->
+
+<!-- /LANGUAGES -->
+			</div>
+		<!-- /panel -->
+		<!-- footer -->
+		<div id="footer">
+							<ul id="footer-info">
+											<li id="footer-info-lastmod"> This page was last modified on 31 October 2012, at 10:55.</li>
+											<li id="footer-info-viewcount">This page has been accessed 678 times.</li>
+									</ul>
+							<ul id="footer-places">
+											<li id="footer-places-privacy"><a href="/wiki/index.php/STL-TSG_Wiki:Privacy_policy" title="STL-TSG Wiki:Privacy policy">Privacy policy</a></li>
+											<li id="footer-places-about"><a href="/wiki/index.php/STL-TSG_Wiki:About" title="STL-TSG Wiki:About">About STL-TSG Wiki</a></li>
+											<li id="footer-places-disclaimer"><a href="/wiki/index.php/STL-TSG_Wiki:General_disclaimer" title="STL-TSG Wiki:General disclaimer">Disclaimers</a></li>
+									</ul>
+										<ul id="footer-icons" class="noprint">
+					<li id="footer-poweredbyico">
+						<a href="http://www.mediawiki.org/"><img src="/wiki/skins/common/images/poweredby_mediawiki_88x31.png" alt="Powered by MediaWiki" width="88" height="31" /></a>
+					</li>
+				</ul>
+						<div style="clear:both"></div>
+		</div>
+		<!-- /footer -->
+		<!-- fixalpha -->
+		<script type="text/javascript"> if ( window.isMSIE55 ) fixalpha(); </script>
+		<!-- /fixalpha -->
+		<script src="/wiki/load.php?debug=false&amp;lang=en&amp;modules=skins.vector&amp;only=scripts&amp;skin=vector&amp;*"></script>
+<script>if(window.mw){
+	mw.loader.load(["mediawiki.user", "mediawiki.util", "mediawiki.page.ready", "mediawiki.legacy.wikibits", "mediawiki.legacy.ajax"]);
+}
+</script>
+<script>if(window.mw){
+	mw.user.options.set({"ccmeonemails":0,"cols":80,"date":"default","diffonly":0,"disablemail":0,"disablesuggest":0,"editfont":"default","editondblclick":0,"editsection":1,"editsectiononrightclick":0,"enotifminoredits":0,"enotifrevealaddr":0,"enotifusertalkpages":1,"enotifwatchlistpages":0,"extendwatchlist":0,"externaldiff":0,"externaleditor":0,"fancysig":0,"forceeditsummary":0,"gender":"unknown","hideminor":0,"hidepatrolled":0,"highlightbroken":1,"imagesize":2,"justify":0,"math":1,"minordefault":0,"newpageshidepatrolled":0,"nocache":0,"noconvertlink":0,"norollbackdiff":0,"numberheadings":0,"previewonfirst":0,"previewontop":1,"quickbar":5,"rcdays":7,"rclimit":50,"rememberpassword":0,"rows":25,"searchlimit":20,"showhiddencats":0,"showjumplinks":1,"shownumberswatching":1,"showtoc":1,"showtoolbar":1,"skin":"vector","stubthreshold":0,"thumbsize":2,"underline":2,"uselivepreview":0,"usenewrc":0,"watchcreations":0,"watchdefault":0,"watchdeletion":0,"watchlistdays":3,"watchlisthideanons":0,
+	"watchlisthidebots":0,"watchlisthideliu":0,"watchlisthideminor":0,"watchlisthideown":0,"watchlisthidepatrolled":0,"watchmoves":0,"wllimit":250,"variant":"en","language":"en","searchNs0":true,"searchNs1":false,"searchNs2":false,"searchNs3":false,"searchNs4":false,"searchNs5":false,"searchNs6":false,"searchNs7":false,"searchNs8":false,"searchNs9":false,"searchNs10":false,"searchNs11":false,"searchNs12":false,"searchNs13":false,"searchNs14":false,"searchNs15":false});;mw.user.tokens.set({"editToken":"+\\","watchToken":false});;mw.loader.state({"user.options":"ready","user.tokens":"ready"});
+	
+	/* cache key: wikidb:resourceloader:filter:minify-js:4:19a4b18a9ac79a6b8c60b24af4668814 */
+}
+</script><!-- Served in 0.108 secs. -->
+	</body>
+</html>

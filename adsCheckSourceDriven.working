@@ -1,0 +1,69 @@
+#!/usr/bin/perl
+use warnings;
+
+$file = "mob.txt";
+
+open $fh, '<', $file or die "Can't open file $!\n";
+@ar= <$fh>;
+
+foreach $line (@ar) {
+
+	if ( $line =~ /cacheType/ ) {
+
+		@ar1=split(/\s+/,$line);
+		$cache=$ar1[3];
+		#print "cache is $cache\n"
+
+	}
+
+	if ( $line =~ /serverID/ ) {
+
+		@ar2=split(/\s+/,$line);
+		$serverId=$ar2[3];
+		#print "serverId is $serverId\n";
+
+	}
+
+	if ( defined $cache && defined $serverId ) {
+
+		$hash{$serverId}=$cache;
+		undef $cache;
+		undef $serverId;
+	}
+
+}
+
+@keys= keys %hash;
+
+for $key (@keys) {
+
+	$value=$hash{$key};
+
+	if ( $key == "602" || $key == "606" ) {
+
+		if ( $value ne "Source" ) {
+
+			print "IDS $key is not Source Driven\n";
+
+		}
+
+	}
+
+	else {
+
+		if ( $value ne "Sink" ) {
+
+			print "Server $key is not Sink Driven\n";
+
+		}
+
+		elsif ( $value eq "Sink" ) {
+
+			print "Only IDS is Source Driven\n";
+
+		}
+
+
+	}
+}
+

@@ -1,0 +1,187 @@
+#!/usr/bin/perl
+use File::Basename;
+use DBI;
+use warnings;
+
+if ( $#ARGV == "-1" ) {
+
+	print "This script requires a directory be specified.\n";
+	die "Ex. \"./label.pl dir\"\n" ;
+
+}
+
+my $dbh = DBI->connect("DBI:mysql:database=prod_labels;host=reghost","quest","Pegestech1",{'RaiseError' => 1});
+
+$dir=$ARGV[0];
+#@list=glob("$dir/*.xml");
+@list=("$dir/ddnLabels.xml");
+
+foreach $in (@list) {
+	
+
+	open $fh, '<', $in or die "Can't open input $!\n";
+	@file=<$fh>;
+	$name=basename($in);	
+	$name =~ s/\.xml//; 
+
+		foreach $line (@file) {
+
+			if ( $line =~ /\Q<multAddr TAG\E/ ) {
+
+				@multAddr=split(/\"/,$line);
+				$mAddr="$multAddr[1]/$multAddr[3]/$multAddr[5]/$multAddr[7]";
+				push (@marray,$mAddr);
+
+			}
+
+			if ( $line =~ /\Q<label ID\E/ ){
+
+				@lar=split(/\"/,$line);
+				$l=$lar[1];
+				#print "label is $l\n";
+			}
+
+			if ( $line =~ /\Q<source\E/ ){
+
+				@sar=split(/[<,>]+/,$line);
+				$sour=$sar[2];
+				#print "source is $sour\n";
+
+			}
+
+			if ( $line =~ /\Q<destination\E/ ){
+
+				@dest=split(/[<,>]+/,$line);
+				$des=$dest[2];
+				#print "destination is $des\n";
+
+			}
+
+			if ( $line =~ /\Q<multTag\E/ ){
+
+				@multTag=split(/[<,>]+/,$line);
+				$mtag=$multTag[2];
+				#print "multTag is $mtag\n";
+
+			}
+
+			if ( $line =~ /\Q<consumer\E/ ){
+
+				@consum=split(/[<>]+/,$line);
+				$consumer=$consum[2];
+				#print "consumer is $cons\n";
+
+			}
+
+			if ( $line =~ /\Q<spsList\E/ ){
+
+				@spsList=split(/[<,>]+/,$line);
+				$spsL=$spsList[2];
+				#print "spsList is $spsL\n";
+
+			}
+
+			if ( $line =~ /\Q<provider NAME\E/ ){
+
+				@provid=split(/\"/,$line);
+				$prov=$provid[1];
+				#print "provider is $prov\n";
+
+			}
+
+			if ( $line =~ /\Q<type\E/ ){
+
+				@ty=split(/[<,>]+/,$line);
+				$type=$ty[2];
+				#print "type is $type\n";
+
+			}
+
+			if ( $line =~ /\Q<SrcID\E/ ){
+
+				@sid=split(/[<,>]+/,$line);
+				$srcid=$sid[2];
+				#print "SrcID is $srcid\n";
+
+			}
+
+			if ( defined $l && $line =~ /\Q<constituents\E/ ){
+
+				@constit=split(/[<,>]+/,$line);
+				$cons=$constit[2];
+				#print "constituents is $cons\n";
+
+			}
+
+			if ( $line =~ /\Q<sps>\E/ ){
+
+				@Sps=split(/[<,>]+/,$line);
+				$sps=$Sps[2];
+				#print "sps is $sps\n";
+
+			}
+
+			if ( $line =~ /\Q<inst ID\E/ ){
+
+				@instid=split(/[<,>,"]+/,$line);
+				$insLet=$instid[2];
+				$inid=$instid[3];
+				#print "instId is $inid with letter $insLet\n";
+				print "$l/$sour/$des/$mtag/$consumer/$spsL/$prov/$type/$srcid/$cons/$sps/$insLet/$inid\n";
+
+			}
+
+			if ( $line =~ /\Qprovider>\E/ ){
+
+				undef $prov;
+				undef $type;
+				undef $srcid;
+				undef $cons;
+				undef $sps;
+				undef $insLet;
+				undef $inid;
+
+			}
+
+			if ( $line =~ /\Qlabel>\E/ ){
+
+				undef $l;
+				undef $sour;
+				undef $des;
+				undef $mtag;
+				undef $consumer;
+				undef $spsL;
+				#print "Matched label close\n";
+
+			}
+
+			#if ( defined $inid ) {
+
+				#print "$l/$sour/$des/$mtag/$cons/$spsL/$prov/$type/$srcid/$cons/$sps/$insLet/$inid\n";
+
+			#}
+
+		}
+
+#	#foreach (@marray) {
+#
+#	#	print "$_\n";
+#
+#	#}
+#	my $sth = $dbh->prepare("SELECT * FROM ddnLabels");
+#  	$sth->execute();
+#	# fetch first row
+#	#my @row = $sth->fetchrow_array();
+#
+#	# # print remaining rows 
+#	while (my @row = $sth->fetchrow_array()) {
+#		print join('/', @row), "\n";
+#	}
+#  	#while (my $ref = $sth->fetchrow_hashref()) {
+#    	#	print "Found a row: id = $ref->{'label'}, name = $ref->{'sps'}\n";
+#  	#}
+#  	$sth->finish();
+#	print "multAddr_$name\n";
+}
+
+

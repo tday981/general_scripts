@@ -1,0 +1,13 @@
+#!/bin/bash
+
+#Copy ime docs to linux
+
+rsync -av --delete-after /mnt/jason_ime/ /smb/ime_backup/H
+
+#Delete Recycler
+
+rm -rf /smb/ime_backup/H/'My Documents'/RECYCLER/
+
+#Change file permissions
+
+chmod -R 755 /smb/ime_backup

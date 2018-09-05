@@ -1,0 +1,30 @@
+#!/bin/bash
+
+dacsFile -r /rmds/dacs/etc/profile.user > /rmds/rwds3.1.0/mue/data/profile.user.txt
+sleep 2
+dacsFile -r /rmds/dacs/etc/profile.dic > /rmds/rwds3.1.0/mue/data/profile.dic.txt
+sleep 2
+
+cd mue
+./init.mue start
+sleep 5
+mue_pid=`ps -ef | grep mue | grep java | awk '{ print $2 }'`
+echo "MUE pid is $mue_pid"
+echo "MUE pid is $mue_pid" > /rmds/rwds3.1.0/rwds_pids
+
+
+cd ../mne
+./init.mne start
+sleep 5
+mne_pid=`ps -ef | grep mne | grep java | awk '{ print $2 }'`
+echo "MNE pid is $mne_pid"
+echo "MNE pid is $mne_pid" >> /rmds/rwds3.1.0/rwds_pids
+
+cd ../xpe
+./init.xpe start
+sleep 5
+xpe_pid=`ps -ef | grep xpe | grep java | awk '{ print $2 }'`
+echo "XPE pid is $xpe_pid"
+echo "XPE pid is $xpe_pid" >> /rmds/rwds3.1.0/rwds_pids
+
+exit

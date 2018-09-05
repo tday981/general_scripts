@@ -1,0 +1,76 @@
+#!/bin/bash
+
+#Set variables
+month=`date +%m`
+day=`date +%d`
+year=`date +%Y`
+current="$month-$day-$year"
+
+echo -n "Would you like to import or export? "
+read action
+
+	if [[ "$action" == export ]]; then
+
+		#Make new directory
+		mkdir /opt/backup/$current
+
+		#Output database to directory
+		cd /rmds/dacs/database/
+		./move_db.pl -S BULLDAWG -B /opt/backup/$current -O -N
+
+		#Tar directory and zip it
+		tar -cvf /opt/backup/$current.tar -C /opt/backup/ $current
+		gzip /opt/backup/$current.tar
+
+		#Remove directory
+		rm -rf /opt/backup/$current;
+
+	elif [[ "$action" == import ]]; then
+
+		echo -n "Import from which file? "
+		read file
+
+		extension=`file $file`
+
+		if [[ "$extension" == "$file: POSIX tar archive" ]]; then
+
+			mkdir /opt/backup/temp
+			tar -xvf $file -C /opt/backup/temp
+			temp=`ls /opt/backup/temp`
+			source=/opt/backup/temp/$temp
+			cd /rmds/dacs/database/
+			./move_db.pl -S BULLDAWG -B $source -I -N
+
+			rm -rf $source
+			rm -rf /opt/backup/temp/*;
+	
+		elif [[ "$extension" == "$file: Zip archive data, at least v1.0 to extract" ]]; then
+		
+			unzip $file -d /opt/backup/temp
+			temp=`ls /opt/backup/temp`
+			source=/opt/backup/temp/$temp
+			cd /rmds/dacs/database/
+			./move_db.pl -S BULLDAWG -B $source -I -N
+
+			rm -rf $source
+			rm -rf /opt/backup/temp;
+		
+		else 
+
+			mkdir /opt/backup/temp
+			tar -xzvf $file -C /opt/backup/temp
+			temp=`ls /opt/backup/temp`
+			source=/opt/backup/temp/$temp
+			cd /rmds/dacs/database/
+			./move_db.pl -S BULLDAWG -B $source -I -N
+
+			rm -rf $source
+			rm -rf /opt/backup/temp/*;
+		fi
+
+	else
+
+		echo "Please answer import or export."
+		/root/mydatabase;
+
+fi

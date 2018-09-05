@@ -1,0 +1,12 @@
+#!/bin/bash
+
+echo -n "Which host do you want info on? "
+read host
+
+clear
+grep serviceId $RMDS_CONFIG | grep -v ! > temp.txt
+grep $host $RMDS_CONFIG | grep serverId >> temp.txt
+grep $host $RMDS_CONFIG | grep nodeId >> temp.txt
+
+cat temp.txt
+rm -f temp.txt
